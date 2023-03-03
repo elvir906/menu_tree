@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Items</title>
+</head>
+<body>
+    <section>
+        {% for item in items %}
+            {% if item.h_level == 1  %}
+                <pre><a href="{% url 'tree:menu_item' item.string %}">{{ item.string }}</a><br></pre>
+            {% endif %}    
+        {% endfor %}
+    </section>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load tab %}
+<html lang="en">
+<head>
+    <title>Items</title>
+</head>
+<body>    
+    <section>       
+        {% for item in items %}            
+            <pre>{% tab item.h_level %}<a href="{% url 'tree:menu_item' item.string %}">{{ item.string }}</a></pre>   
+        {% endfor %}
+    </section>
+</body>
+</html>
