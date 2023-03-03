@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  menu-backend:
+    build:
+      context: .
+      dockerfile: menu_app/Dockerfile
+    volumes:
+      - static_value:/app/static/
+  nginx:
+    image: nginx:1.21.3-alpine
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - static_value:/var/html/static/
+
+    depends_on:
+      - menu-backend
+
+volumes:
+  static_value:
